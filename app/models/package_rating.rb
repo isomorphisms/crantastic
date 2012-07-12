@@ -34,8 +34,8 @@ class PackageRating < ActiveRecord::Base
   def self.calculate_average(package_id, aspect=nil)
     if aspect
       self.average('rating',
-                   :conditions => ["aspect = ? AND package_id = ?",
-                                   aspect, package_id]).to_f
+                   :conditions => ["aspect = ? AND package_id = ?", #sql
+                                   aspect, package_id]).to_f        #sql interpolation
     else # combined overall+documentation
       self.average('rating',
                    :conditions => ["package_id = ?",
