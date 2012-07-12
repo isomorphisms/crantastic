@@ -16,7 +16,7 @@ class PackagesController < ApplicationController
 
     options = {}
     if params[:popcon]
-      options = {:order => "score DESC, package_users_count DESC"}
+      options = {:order => "score DESC, package_users_count DESC"}  #sql
     end
 
     @packages = Package.paginating_search(@search_term, page_no, options)
